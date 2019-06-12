@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="js/lib/jquery-latest.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-ui-latest.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.ambiance.js"></script>
+    <script type="text/javascript" src="js/LoadLanguage.js"></script>
+    <script type="text/javascript" src="js/server.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/demo_table_jui.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.ambiance.css" />
+    <link type="text/css" href="css/ui.panel.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/jquery.ui.all.css" />
+        -->
+
+    <style type="text/css">
+        html,
+        body {
+            font-size: 80%;
+            background: #000;
+        }
+        
+        #serverTable table {
+            width: 100%;
+            font-size: 100%;
+        }
+        
+        #serverTable th,
+        td {
+            padding: 14px !important;
+        }
+        
+        #serverTable th,
+        td {
+            text-align: justify;
+        }
+        
+        #serverTable tr.odd {
+            background-color: #bbbbbb;
+        }
+        
+        #serverTable tr.even {
+            background-color: #fff;
+        }
+        
+        table#serverTable tr.even.row_selected td {
+            background-color: #718ea0;
+        }
+        
+        table#serverTable tr.odd.row_selected td {
+            background-color: #718ea0;
+        }
+        
+        .tblServerPreferences {
+            font-size: 14px;
+            padding: 15px;
+            table-layout: fixed;
+        }
+
+        .tblServerPreferences td {
+            width: 200px;
+        }
+        
+        table#serverTable tr:hover td {
+            background: rgba(24, 143, 255, 0.16) !important;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+
+<body style="padding: 10px">
+    <div style="margin-top: 5px;">
+        <button id="verifyBtn" class="cssButton">Verify</button>
+        <button id="addBtn" class="cssButton">Add</button>
+        <button id="editBtn" class="cssButton">Edit</button>
+        <button id="deleteBtn" class="cssButton">Delete</button>
+    </div>
+    <div id="serversDiv" style="margin-top: 15px;">
+        <table id="serverTable" width="100%" style="font-size: 14px;border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="text-align: center"></th>
+                    <th id="lblDescription">Description</th>
+                    <th id="lblAETitle">AE Title</th>
+                    <th id="lblHostName">Host Name</th>
+                    <th id="lblDicomPort">DICOM Port</th>
+                    <th id="lblRetrieve">Retrieve Type</th>
+                    <th id="lblWadoCxt">WADO Context</th>
+                    <th id="lblWadoPort">WADO Port</th>
+                    <th id="lblImageType">Image Type</th>
+                    <th id="lblPreviews">Previews</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+    <div>
+        <p class="ui-widget-content" style="border: none;background: initial;font-size: 13px;">
+            <b>Note:</b> For
+            <i>dcm4chee-arc-light</i> server, the WADO context should be
+            <del>wado</del>
+            "<ins>{SERVER-CONTEXT}/aets/{AE TITLE}/wado</ins>". Eg. "dcm4chee-arc/aets/DCM4CHEE/wado" .</p>
+    </div>
+
+	<div id="loadTabs">
+
+     </div>
+
+</body>
+
+</html>

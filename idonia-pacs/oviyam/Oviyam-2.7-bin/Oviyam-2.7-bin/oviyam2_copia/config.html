@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <title>Oviyam2.6 Settings</title>
+
+    <script type="text/javascript" src="js/lib/jquery-latest.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-ui-latest.js"></script>
+    <script type="text/javascript" src="js/LoadLanguage.js"></script>
+
+    <!-- theme switcher -->
+    <script type="text/javascript" src="js/lib/debug.js"></script>
+    <script type="text/javascript" src="js/lib/themeswitchertool.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $.get("UserConfig.do", { 'settings': 'roles', 'todo': 'READ' }, function (data) {
+                var role = data.trim();
+                //roles = roles.substring(roles.indexOf(':')+1, roles.length-1).split(",");
+                //if($.inArray("WebAdmin", roles) >=  0) {
+                if (role == 'Admin') {
+                    $("#tabs").tabs();
+                } else {
+                    $("#tabs").tabs().tabs("remove", 0);
+                }
+            }, 'text');
+
+            $.get("UserConfig.do", { 'settings': 'theme', 'todo': 'READ' },
+                function (data) {
+                    $('#switcher').themeswitcher({
+                        loadTheme: data.trim(),
+                        cookieName: ''
+                    });
+                    if (data.trim() == 'Dark Hive') {
+                        $('.ui-widget-content').css('background', 'black');
+                    }
+                }, 'text');
+
+            $("#tabs").css("height", "93%");
+            $("#tabs").css("margin-top", "4%");
+
+        });  //for document.ready
+
+    </script>
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.ui.all.css" />
+    <style type="text/css">
+        html,
+        body {
+            background-color: #333333 !important;
+        }
+
+         #productname {
+            /* top: 15px;
+                    left: 4px;
+                    position: absolute;
+                    font-size: 18px;
+                    font-weight: bold;
+                    font-family: sans-serif;
+                    color: #FF8A00;
+                    text-align: center; */
+            top: 3px;
+            left: 2px;
+            border: none;
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 5px;
+            font-family: sans-serif;
+            color: #FF8A00;
+            white-space: nowrap;
+            border: none !important;
+        }
+        
+        .versionSpan {
+            font-size: 10px;
+            margin-left: 28px;
+            position: relative;
+            top: 0px;
+            white-space: pre;
+        }
+
+        .cssButton {
+            height: 25px;
+            width: 84px;
+        }
+
+		.ui-button-text{
+			padding:0px !important;
+		}
+		
+        .ambiance {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body style="margin: 0px">
+    <div id="productName">Oviyam 2</div>
+    <div class="demo" style="font-size:13px">
+        <div id="tabs">
+            <ul>
+                <li>
+                    <a href="server.html" id="lblServer">Server</a>
+                </li>
+                <li>
+                    <a href="queryParam.html" id="lblQueryParam">Query Params</a>
+                </li>
+                <li>
+                    <a href="preferenceTab.html" id="lblPreferences">Preferences</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    <!-- End demo -->
+
+</body>
+
+</html>

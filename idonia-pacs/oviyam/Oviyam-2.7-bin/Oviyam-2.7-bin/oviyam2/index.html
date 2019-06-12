@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- <title>Oviyam 2.0</title> -->
+
+    <script type="text/javascript" src="js/lib/jquery-latest.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.cookies.min.js"></script>
+
+    <script type="text/javascript">
+        $.get("Language.do", {
+            'option': 'get'
+        }, function(data) {
+            var cookiesExp = new Date();
+            cookiesExp.setTime(cookiesExp.getTime() + (365 * 24 * 60 * 60 * 1000));
+            $.cookies.set('language', data, {
+                expiresAt: cookiesExp
+            });
+        }, 'text');
+    </script>
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.ui.all.css" />
+    <link rel="stylesheet" type="text/css" href="css/layout-default-latest.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.contextMenu.css" />
+    <link href="css/demo_table_jui.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.noty.css" />
+    <link rel="stylesheet" type="text/css" href="css/noty_theme_default.css" />
+    <link rel="stylesheet" type="text/css" href="css/settings.css" />
+    <link rel="stylesheet" type="text/css" href="css/modal.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-gentleSelect.css" />
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <style type="text/css">
+        /* Using an 'optional-container' instead of 'body', so need body to have a 'height' */
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden !important;
+            font-size: 80%;
+        }
+        
+        #optional-container {
+            width: 99.5%;
+            height: 99%;
+            margin-top: 3px;
+            margin-left: 3px;
+            border: none;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ui-layout-center {
+            overflow: hidden;
+        }
+        
+        .westImgs {
+            padding-right: 3px;
+            padding-bottom: 3px;
+        }
+        
+         .productNameDiv {
+            top: 8px;
+            left: 2px;
+            border: none;
+            position: fixed;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 5px;
+        }
+        
+        .versionSpan {
+            font-size: 10px;
+            margin-left: 28px;
+            position: relative;
+            top: 0px;
+            white-space: pre;
+        }
+        
+         #productName {
+            font-weight: bold;
+            border: none !important;
+        }
+        
+        #buttonContainer {
+            text-align: center;
+            position: relative !important;
+            margin: auto !important;
+            bottom: auto;
+            max-width: 68% !important;
+            z-index: 0;
+            top: 0px;
+            left: 0px !important;
+            right: 0px;
+            height: auto !important;
+            display: inline-block;
+            visibility: visible;
+            overflow: hidden;
+            border: none;
+        }
+        
+        #buttonContainer label {
+            margin: 2px;
+        }
+        
+        #tabs_div {
+            position: relative !important;
+            margin: 0px;
+            z-index: 0;
+            display: block;
+            visibility: visible;
+            top: 5px !important;
+            bottom: 49px;
+            left: 226px;
+            right: 0px;
+            width: 100% !important;
+            height: 712px;
+            border: none;
+        }
+        
+        #tabUL {
+            font-size: 13px;
+        }
+        
+        .fa-3x {
+            font-size: 24px !important;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/lib/jquery-ui-latest.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.layout-latest.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.noty.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.plugin.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.timer.min.js"></script>
+    <script type="text/javascript" src="js/modal.js"></script>
+
+    <!-- theme switcher -->
+    <script type="text/javascript" src="js/lib/debug.js"></script>
+    <script type="text/javascript" src="js/lib/themeswitchertool.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="js/lib/date.js"></script>
+    <!--        <script type="text/javascript" src="js/database.js"></script>
+        <script type="text/javascript" src="js/LocalStudies.js"></script>
+        <script type="text/javascript" src="js/homeWestContainer.js"></script>-->
+    <script type="text/javascript" src="js/filehandle.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+    <script type="text/javascript" src="js/LoadLanguage.js"></script>
+
+    <link href="css/jquery-ui.css" type="text/css" rel="Stylesheet" class="ui-theme">
+    <link href="css/jquery-ui(1).css" type="text/css" rel="Stylesheet" class="ui-theme">
+    <link href="css/jquery-ui(2).css" type="text/css" rel="Stylesheet" class="ui-theme">
+</head>
+
+<body style="cursor: auto; ">
+
+    <div id="optional-container" class="ui-layout-container ui-widget-content">
+
+        <div id="buttonContainer" class="ui-layout-north ui-layout-pane ui-layout-pane-north">
+            <input type="radio" id="radio1" name="radio" />
+            <label for="radio1">Today</label>
+        </div>
+
+		<div class="productNameDiv">
+        	<div id="productName" class="ui-state-default ui-widget-content">
+            	<span id="version"></span>
+        	</div>
+		</div>
+		
+        <div id="user" style="top: 20px;right: 50px;position: fixed;font-size: 15px;z-index:3;"></div>
+
+
+        <div id="button" style="top: 15px;right: 17px; text-align:right; position: fixed; z-index:3;">
+
+            <div id="imgToggle" class="menu_class">
+                <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+            </div>
+            <ul class="the_menu" style="width:90px;background-color:initial;">
+                <li id="liConfig">
+                    <a href=""><span> <i class="fa fa-wrench" style="font-size:16px;" aria-hidden="true"></i> </span> Settings</a>
+                </li>
+                <!-- <li id="deleteDb"><a>Delete Local DB</a></li> -->
+                <li id="logoutLi">
+                    <a onclick="window.location='logout.jsp';"><span> <i class="fa fa-sign-out" style="font-size:16px;" aria-hidden="true"></i> </span> Logout</a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="tabs_div" class="ui-layout-center ui-tabs ui-widget ui-corner-all ui-layout-pane ui-layout-pane-center ui-layout-pane-hover ui-layout-pane-center-hover ui-layout-pane-open-hover ui-layout-pane-center-open-hover">
+
+            <ul id="tabUL" style="-moz-border-radius-bottomleft: 0; -moz-border-radius-bottomright: 0;" class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                <!-- <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#LOCAL"><span>Local</span></a></li>-->
+            </ul>
+            <!--<div id="tabContent" class="ui-layout-content ui-widget-content ui-corner-bottom" style="border-top-width: 0px; padding-bottom: 1em; position: relative; height: 556px; visibility: visible; left: 0px; ">  -->
+            <div id="tabContent" class="ui-layout-content ui-widget-content ui-corner-bottom" style="border-top-width: 0px; position: relative; height: 556px; width:100%; visibility: visible; border: none; padding: 0px;">
+                <!--  <div id="LOCAL" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" style="padding: 0; width: 100%; height:99%;">
+                        <div id="westPane" style="margin: 0px; width: 18%; height: 97%; visibility: visible; display: block; z-index: 0; float: left;"></div>
+                        <div id="queryResult" style="float:left; width:81%; margin-left: 5px;">
+                            <table class="display" id="resultTable" style="font-size:12px;">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th id="lblPatientID">Patient ID</th>
+                                        <th id="lblPatientName">Patient Name</th>
+                                        <th id="lblDOB">Date of Birth</th>
+                                        <th id="lblAccessionNumber">Accession Number</th>
+                                        <th id="lblStudyDate">Study Date</th>
+                                        <th id="lblStudyDescription">Study Description</th>
+                                        <th id="lblModality">Modality</th>
+                                        <th id="lblInstanceCount">Instance Count</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>-->
+            </div>
+        </div>
+
+        <!-- <div id="westPane" class="ui-layout-west ui-layout-pane ui-layout-pane-west" style="margin: 0px; width: 198px; height: 698px; visibility: visible; display: block; position: absolute; top: 51px; bottom: 49px; left: 0px; right: auto; z-index: 0; "></div> -->
+
+        <!-- Context menu -->
+        <ul id="tabMenu" class="contextMenu" style="width:80px">
+            <li class="echo">
+                <a href="#" style="color:#000; font-size:11px;">&nbsp;Verify</a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

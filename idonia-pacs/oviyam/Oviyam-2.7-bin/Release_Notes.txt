@@ -1,0 +1,33 @@
+Oviyam 2.7 - Feature list:
+
+Bug
+1. OV-187 - Study downloading is not working when the zip filename contains special characters and spaces
+2. OV-190 - Images are not loaded in the viewer window when the series number is null for that series.
+3. OV-191 - Incorrect transfer syntax UID 1.2.840.100008.1.2 used instead of 1.2.840.10008.1.2 in WADO URL.
+4. OV-195 - Viewer page is not loading in latest Safari browser for Mac OS (Sierra & High Sierra versions)	
+
+
+New Feature
+1. OV-188 - Add an option to tile the images of a selected series.
+2. OV-189 - Support for dcm4chee-arc-light.
+3. OV-193 - Add image laterality tag value in text overlay.
+
+
+Improvement
+1. OV-194 - Improvements in Windowing
+
+  
+
+
+Note : 
+    For dcm4chee-arc-light server, the WADO context should be "SERVER-CONTEXT/aets/AETITLE/wado". 
+    Eg. dcm4chee-arc/aets/DCM4CHEE/wado
+
+
+  
+For Tomcat Server:
+
+1. Copy all jar files from "tomcat" folder into Tomcat "Lib" folder.
+2. Uncomment the user roles,user names in "conf/tomcat-users.xml" file. 
+3. Add new user role, user name for "admin".
+4. Deploy Oviyam2.war into Tomcat "webapps" folder.
